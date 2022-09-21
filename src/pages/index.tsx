@@ -10,7 +10,7 @@ export default function Home(linkingPage: HomeModel) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await api.get(
-    'api/linking-page?populate[buttons][populate][0]=buttons&populate[buttonIcons][populate][0]=icon&populate[photo][populate][0]=photo',
+    'linking-page?populate[buttons][populate][0]=buttons&populate[buttonIcons][populate][0]=icon&populate[photo][populate][0]=photo',
   )
   const linkingPage: HomeModel = res.data
   if (!linkingPage) {

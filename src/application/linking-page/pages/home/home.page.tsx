@@ -29,7 +29,7 @@ export function HomePage(linkingPage: HomeModel) {
           key={iconButton.icon.data.attributes.url}
           size={60}
           icon={{
-            iconUrl: `http://localhost:1337${iconButton.icon.data.attributes.url}`,
+            iconUrl: iconButton.icon.data.attributes.url,
           }}
         />
       )),
@@ -40,7 +40,7 @@ export function HomePage(linkingPage: HomeModel) {
     () => (
       <Image
         src={photo.data.attributes.url}
-        alt={photo.data.attributes.alt}
+        alt={photo.data.attributes.caption}
         width={972}
         height={1240}
         layout="responsive"

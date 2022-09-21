@@ -19,7 +19,7 @@ export type HomeModelContent = {
     data: {
       attributes: {
         url: string
-        alt: string
+        caption: string
       }
     }
   }
