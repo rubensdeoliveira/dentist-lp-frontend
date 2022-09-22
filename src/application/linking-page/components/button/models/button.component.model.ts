@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 
 export type ButtonPropsModel = ButtonHTMLAttributes<any> & {
-  children: ReactNode
+  link: string
+  label: string
 }

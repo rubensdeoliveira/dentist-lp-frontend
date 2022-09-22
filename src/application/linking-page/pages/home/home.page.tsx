@@ -3,19 +3,18 @@ import { useMemo } from 'react'
 
 import { Button } from 'application/linking-page/components/button'
 import * as S from 'application/linking-page/pages/home/styles'
-import { IconButton, Link } from 'application/common/components'
+import { IconButton } from 'application/common/components'
 import { HomeModel } from 'domain/linking-page'
 
 export function HomePage(linkingPage: HomeModel) {
   const { buttons, buttonIcons, photo, title } = linkingPage.data.attributes
 
+  console.log(buttons)
   const handleButtons = useMemo(
     () =>
       buttons.length > 0 &&
       buttons.map(button => (
-        <Button key={button.label}>
-          <Link href={button.link} label={button.label} />
-        </Button>
+        <Button key={button.label} link={button.link} label={button.label} />
       )),
     [buttons],
   )
@@ -31,6 +30,7 @@ export function HomePage(linkingPage: HomeModel) {
           icon={{
             iconUrl: iconButton.icon.data.attributes.url,
           }}
+          link={iconButton.link}
         />
       )),
     [buttonIcons],

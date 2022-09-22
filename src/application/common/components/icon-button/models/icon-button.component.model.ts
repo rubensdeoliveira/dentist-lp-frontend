@@ -5,4 +5,5 @@ export type IconButtonPropsModel = ButtonHTMLAttributes<any> & {
   size: number
   icon: { reactIcon?: IconType; iconUrl?: string }
   alt: string
+  link: string
 }

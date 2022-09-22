@@ -1,5 +1,7 @@
 import { LinkProps } from 'next/link'
+import React from 'react'
 
 export type LinkPropsModel = LinkProps & {
-  label: string
+  label?: string
+  children?: React.ReactNode
 }

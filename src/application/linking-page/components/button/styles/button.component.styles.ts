@@ -14,16 +14,10 @@ export const Container = styled.button`
   max-width: 436px;
   height: 119px;
 
-  font-family: ${({ theme }) => theme.fonts.family.body};
-  font-weight: 400;
-  font-size: 3.6rem;
-  line-height: 4.1rem;
-
   &:hover {
     background: ${({ theme }) => theme.colors.primary};
     border: 1px solid ${({ theme }) => theme.colors.primary};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    color: ${({ theme }) => theme.colors.fontAlt};
   }
 
   @media (max-width: 991px) {
