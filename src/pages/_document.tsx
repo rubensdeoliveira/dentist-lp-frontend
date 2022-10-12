@@ -70,7 +70,7 @@ export default class MyDocument extends Document {
             property="og:description"
             content="Acesse os principais links da Dra. Aline Ísis, e fique por dentro das novidades e inovações da Hamornizaçāo Facial."
           />
-          <meta property="og:url" content="https://clinicaalineisis.com.br/" />
+          <meta property="og:url" content="https://draalineisis.com.br/" />
           <meta property="og:type" content="website" />
         </Head>
         <body>
