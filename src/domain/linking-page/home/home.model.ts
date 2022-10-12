@@ -1,32 +1,56 @@
 export type HomeModelContent = {
-  title: string
+  cro: string
+  specialty: string
   buttons: Array<{
     label: string
     link: string
   }>
   buttonIcons: Array<{
     link: string
-    alt: string
     icon: {
       data: {
         attributes: {
           url: string
+          alternativeText: string
         }
       }
     }
+    alt: string
   }>
+  titleImage: {
+    data: {
+      attributes: {
+        url: string
+        alternativeText: string
+        width: number
+        height: number
+      }
+    }
+  }
   photo: {
     data: {
       attributes: {
         url: string
-        caption: string
+        alternativeText: string
+        width: number
+        height: number
+      }
+    }
+  }
+  headerImage: {
+    data: {
+      attributes: {
+        url: string
+        alternativeText: string
       }
     }
   }
 }
 
 export type HomeModel = {
-  data: {
-    attributes: HomeModelContent
+  linkingPage: {
+    data: {
+      attributes: HomeModelContent
+    }
   }
 }

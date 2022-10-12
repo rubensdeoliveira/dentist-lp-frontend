@@ -1,6 +1,6 @@
 import { Link } from 'application/common/components'
-import { ButtonPropsModel } from 'application/linking-page/components/button/models'
-import * as S from 'application/linking-page/components/button/styles'
+import { ButtonPropsModel } from 'application/common/components/button/models'
+import * as S from 'application/common/components/button/styles'
 
 export function Button({ link, label, ...rest }: ButtonPropsModel) {
   return (

@@ -1,15 +1,19 @@
-import Image from 'next/image'
 import { useMemo } from 'react'
 
-import { Button } from 'application/linking-page/components/button'
+import { Button } from 'application/common/components/button'
 import * as S from 'application/linking-page/pages/home/styles'
-import { IconButton } from 'application/common/components'
-import { HomeModel } from 'domain/linking-page'
+import { IconButton, Image } from 'application/common/components'
+import { HomeModelContent } from 'domain/linking-page'
 
-export function HomePage(linkingPage: HomeModel) {
-  const { buttons, buttonIcons, photo, title } = linkingPage.data.attributes
-
-  console.log(buttons)
+export function HomePage({
+  cro,
+  buttons,
+  buttonIcons,
+  headerImage,
+  photo,
+  specialty,
+  titleImage,
+}: HomeModelContent) {
   const handleButtons = useMemo(
     () =>
       buttons.length > 0 &&
@@ -26,7 +30,7 @@ export function HomePage(linkingPage: HomeModel) {
         <IconButton
           alt={iconButton.alt}
           key={iconButton.icon.data.attributes.url}
-          size={60}
+          size={70}
           icon={{
             iconUrl: iconButton.icon.data.attributes.url,
           }}
@@ -36,28 +40,27 @@ export function HomePage(linkingPage: HomeModel) {
     [buttonIcons],
   )
 
-  const handleImage = useMemo(
-    () => (
-      <Image
-        src={photo.data.attributes.url}
-        alt={photo.data.attributes.caption}
-        width={972}
-        height={1240}
-        layout="responsive"
-        priority={true}
-      />
-    ),
-    [photo],
-  )
-
   return (
     <S.Container>
-      <S.ImageContainer>{handleImage}</S.ImageContainer>
-      <S.Content>
-        <h1>{title}</h1>
-        {handleButtons}
-        <S.IconButtonsContainer>{handleButtonIcons}</S.IconButtonsContainer>
-      </S.Content>
+      <S.Header url={headerImage.data.attributes.url} />
+      <Image
+        width={photo.data.attributes.width}
+        height={photo.data.attributes.height}
+        src={photo.data.attributes.url}
+        alt={photo.data.attributes.alternativeText}
+        layout="responsive"
+      />
+      <Image
+        width={titleImage.data.attributes.width}
+        height={titleImage.data.attributes.height}
+        src={titleImage.data.attributes.url}
+        alt={titleImage.data.attributes.alternativeText}
+        layout="responsive"
+      />
+      <h3>{cro}</h3>
+      <h4>{specialty}</h4>
+      {handleButtons}
+      <S.IconButtonsContainer>{handleButtonIcons}</S.IconButtonsContainer>
     </S.Container>
   )
 }

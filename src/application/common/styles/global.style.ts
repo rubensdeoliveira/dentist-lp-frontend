@@ -9,11 +9,31 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 62.5%;
+
+    
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     background: ${({ theme }) => theme.colors.background};
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #333;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #555; 
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: ${({ theme }) => theme.colors.primary};
+    }
   }
 
   body, input, textarea, button {

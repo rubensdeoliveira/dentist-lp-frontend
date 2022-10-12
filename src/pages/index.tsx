@@ -1,25 +1,25 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import { HomePage } from 'application/linking-page/pages'
 import { HomeModel } from 'domain/linking-page'
-import { api } from 'infra/common/axios/client'
+import { getHomePageQuery } from 'infra/linking-page/graphql/queries'
+import { client } from 'infra/linking-page/graphql/client'
 
-export default function Home(linkingPage: HomeModel) {
-  return <HomePage {...linkingPage} />
+export default function Home({
+  attributes,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  return <HomePage {...attributes} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await api.get(
-    'linking-page?populate[buttons][populate][0]=buttons&populate[buttonIcons][populate][0]=icon&populate[photo][populate][0]=photo',
-  )
-  const linkingPage: HomeModel = res.data
-  if (!linkingPage) {
+  const response: HomeModel = await client.request(getHomePageQuery)
+  if (!response) {
     return {
       notFound: true,
     }
   }
   return {
-    props: linkingPage,
+    props: response.linkingPage.data,
     revalidate: 60 * 10,
   }
 }

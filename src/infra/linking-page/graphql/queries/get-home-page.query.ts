@@ -5,7 +5,8 @@ export const getHomePageQuery = gql`
     linkingPage {
       data {
         attributes {
-          title
+          cro
+          specialty
           buttons {
             label
             link
@@ -16,7 +17,19 @@ export const getHomePageQuery = gql`
               data {
                 attributes {
                   url
+                  alternativeText
                 }
+              }
+            }
+            alt
+          }
+          titleImage {
+            data {
+              attributes {
+                url
+                alternativeText
+                width
+                height
               }
             }
           }
@@ -24,6 +37,17 @@ export const getHomePageQuery = gql`
             data {
               attributes {
                 url
+                alternativeText
+                width
+                height
+              }
+            }
+          }
+          headerImage {
+            data {
+              attributes {
+                url
+                alternativeText
               }
             }
           }
