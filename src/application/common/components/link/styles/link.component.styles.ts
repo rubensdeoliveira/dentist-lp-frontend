@@ -14,13 +14,13 @@ export const Anchor = styled.a`
   }
 
   @media (max-width: 991px) {
-    font-size: 3.5rem;
-    line-height: 4.1rem;
+    font-size: 3rem;
+    line-height: 3.1rem;
   }
 
   @media (max-width: 767px) {
-    font-size: 2.9rem;
-    line-height: 3.1rem;
+    font-size: 2.5rem;
+    line-height: 3.6rem;
   }
 
   @media (max-width: 575px) {
