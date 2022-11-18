@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -12,6 +13,7 @@
     "graphql-request": "^5.0.0",
     "next": "^12.3.0",
     "next-pwa": "^5.6.0",
+    "next-sitemap": "^3.1.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
